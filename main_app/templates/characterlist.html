@@ -1,4 +1,5 @@
 {% extends 'base.html' %}
+{% load static %}
 
 {% block title %}
 Character List
@@ -21,11 +22,12 @@ Character List
         <a href="{% url 'character_detail' character.pk %}">
             <h3>Name: {{character.name}}</h3> 
         </a>
-        <h3>Age: {{character.age}}</h3>
-        <h3>Gender: {{character.gender}}</h3>
-        <h3>Attribute: {{character.attribute}}</h3>
+        <p>Age: {{character.age}}</p>
+        <p>Gender: {{character.gender}}</p>
+        <p>Attribute: {{character.attribute}}</p>
         <p>Created By: 
             <a href='/user/{{character.user.username}}'>{{character.user.username}}</a>
         </p>
+    
     {% endfor %}
  {% endblock %}

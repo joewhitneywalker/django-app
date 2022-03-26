@@ -18,6 +18,10 @@ urlpatterns = [#characters  urls
     path('characterpowers/create/', views.CharacterPowersCreate.as_view(), name='characterpowers_create'),
     path('characterpowers/<int:pk>/update/', views.CharacterPowersUpdate.as_view(), name='characterpowers_update'),
     path('characterpowers/<int:pk>/delete/', views.CharacterPowersDelete.as_view(), name='characterpowers_delete'),
+    #login authorization
+    path('login/', views.login_view, name='login'),
+    path('logout/', views.logout_view, name='logout'),
+    path('signup/', views.signup_view, name='signup'),
 ]
 
 

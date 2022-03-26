@@ -12,7 +12,7 @@ GENDER_CHOICES = (
 
 class CharacterPowers(models.Model):
     characterpowers = models.CharField(max_length=100) #name in cattoy reference
-    
+  
     def __str__(self):
         return self.characterpowers #self.name?
 
