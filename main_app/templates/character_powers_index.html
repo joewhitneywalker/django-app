@@ -1,0 +1,17 @@
+<!-- templates/cattoy_index.html -->
+{% extends 'base.html' %}
+{% block content %}
+
+<h1> Character's Powers</h1>
+
+{% for characterpowers in characterpowers %}
+    <div>
+        <a href="{% url 'characterpowers_show' characterpowers.id %}">
+            <div class="card-content">
+                <span>{{ characterpowers.characterpowers }}</span>
+            </div>
+        </a>
+    </div>
+{% endfor %}
+
+{% endblock %}

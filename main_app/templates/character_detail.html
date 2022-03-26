@@ -1,0 +1,26 @@
+{% extends 'base.html' %} 
+
+{% block content %}
+
+<div>
+  <img src="{{character.img}}" alt="{{character.name}}" />
+</div>
+    <h1>{{character.name}}</h1>
+</div>
+<div>
+    <h3>Age: {{character.age}}</h3>
+    <h3>Gender: {{character.gender}}</h3>
+    <p>Created By: 
+        <a href='/user/{{character.user.username}}'>{{character.user.username}}</a>
+    </p>
+    {% for characterpowers in character.characterpowers.all %}
+    <div>{{character.name}}</div>
+{% empty %}
+    <div>This Character Has No Powers :(</div>
+{% endfor %}
+</div>
+<div>
+    <a href="{% url 'character_update' character.pk%}">Update</a>
+    <a href="{% url 'character_delete' character.pk %}">Delete</a>
+</div>
+{% endblock %}

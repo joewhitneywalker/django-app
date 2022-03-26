@@ -1,0 +1,22 @@
+<!-- templates/cattoy_show.html -->
+{% extends 'base.html' %}
+{% block content %}
+
+<h1>Characters Powers Detail</h1>
+
+<div>
+    <div>
+        <p>{{ characterpowers.characterpowers }}</p>
+        <p>Attributed To:</p>
+        {% for character in characterpowers.character_set.all %}
+            <p>{{character.name}}</p>
+        {% empty %}
+            <p>Nobody Has This Power</p>
+        {% endfor %}
+    </div>
+    <div>
+        <a href="{% url 'characterpowers_update' characterpowers.id %}">Edit</a>
+        <a href="{% url 'characterpowers_delete' characterpowers.id %}">Delete</a>
+    </div>
+</div>
+{% endblock %}

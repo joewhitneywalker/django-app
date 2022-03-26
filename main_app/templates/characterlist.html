@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Character List
+{% endblock %}
+
+{% block content %}
+
+<form>
+    <div>
+        <input type="text" name="name" placeholder="name"/>
+        <input type="submit" value="Search"/>
+    </div>
+    <a href="{% url 'character_list' %}">Clear Search</a>
+
+</form>
+
+<h1>{{header}}</h1>
+    {% for character in characters %}
+        <img src="{{character.img}}" alt="{{character.name}}">
+        <a href="{% url 'character_detail' character.pk %}">
+            <h3>Name: {{character.name}}</h3> 
+        </a>
+        <h3>Age: {{character.age}}</h3>
+        <h3>Gender: {{character.gender}}</h3>
+        <h3>Attribute: {{character.attribute}}</h3>
+        <p>Created By: 
+            <a href='/user/{{character.user.username}}'>{{character.user.username}}</a>
+        </p>
+    {% endfor %}
+ {% endblock %}
