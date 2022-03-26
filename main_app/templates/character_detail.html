@@ -15,6 +15,7 @@
         <a href='/user/{{character.user.username}}'>{{character.user.username}}</a>
     </p>
     {% for characterpowers in character.characterpowers.all %}
+    <h3>Character's Powers: {{characterpowers}}</h3>
     <div>{{character.name}}</div>
 {% empty %}
     <div>This Character Has No Powers :(</div>
