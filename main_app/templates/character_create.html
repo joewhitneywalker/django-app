@@ -2,7 +2,7 @@
 {% extends 'base.html' %} 
 {% block content %}
 	<h1>Add a Character</h1>
-	
+	<div class="container-md">
 	<form method="post">
 		<!-- Security Feature  -->
 		  {% csrf_token %} 
@@ -11,5 +11,6 @@
 		<!--  Submit form  -->
 		  <input type="submit" value="Submit" />
 	</form>
+	</div>
 
 {% endblock %}

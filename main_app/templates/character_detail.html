@@ -1,7 +1,7 @@
 {% extends 'base.html' %} 
 
 {% block content %}
-
+<div class="container-md">
 <div>
   <img src="{{character.img}}" alt="{{character.name}}" />
 </div>
@@ -24,5 +24,6 @@
 <div>
     <a href="{% url 'character_update' character.pk%}">Update</a>
     <a href="{% url 'character_delete' character.pk %}">Delete</a>
+</div>
 </div>
 {% endblock %}
