@@ -5,3 +5,8 @@ h1 {
 li {
     color: blue;
 }
+
+img {
+    max-width: 350px;
+    max-height: 500px;
+}

@@ -27,7 +27,7 @@ class Character(models.Model):
     created_at = models.DateTimeField(auto_now_add=True)
     user = models.ForeignKey(User, on_delete=models.CASCADE)
     CharacterPowers = models.ManyToManyField(CharacterPowers)
-    #need to add in attributes
+    
 
     def __str__(self):
         return self.name

@@ -70,13 +70,13 @@ class Character_Create(CreateView):
   model = Character
   fields = ['name', 'img', 'age', 'attribute', 'gender', 'characterpowers']
   template_name ="character_create.html"
-  success_url = '/characters'
+  success_url = '/characters/'
 
   def form_valid(self, form):
     self.object = form.save(commit=False)
     self.object.user = self.request.user
     self.object.save()
-    return HttpResponseRedirect('/characters')
+    return HttpResponseRedirect('/characters/')
  
 
 #view details of character
