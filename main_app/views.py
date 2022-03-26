@@ -70,7 +70,9 @@ class Character_Create(CreateView):
   model = Character
   fields = ['name', 'img', 'age', 'attribute', 'gender', 'characterpowers']
   template_name ="character_create.html"
-  success_url = '/characters/'
+  #success_url = '/characters/'
+  def get_success_url(self):
+        return reverse('character_detail', kwargs={'pk': self.object.pk})
 
   def form_valid(self, form):
     self.object = form.save(commit=False)
@@ -109,27 +111,27 @@ def profile(request, username):
 #characterpowers
 def characterpowers_index(request):
     characterpowers = CharacterPowers.objects.all()
-    return render(request, 'character_powers_index.html', {'characterpowers': characterpowers})
+    return render(request, 'characterpowers_index.html', {'characterpowers': characterpowers})
 
 def characterpowers_show(request, characterpowers_id):
     characterpowers = CharacterPowers.objects.get(id=characterpowers_id)
-    return render(request, 'character_powers_show.html', {'characterpowers': characterpowers})
+    return render(request, 'characterpowers_show.html', {'characterpowers': characterpowers})
 
 
 class CharacterPowersCreate(CreateView):
     model = CharacterPowers
     fields = '__all__'
-    template_name = "character_powers_form.html"
+    template_name = "characterpowers_form.html"
     success_url = '/characterpowers'
 
  
 class CharacterPowersUpdate(UpdateView):
     model = CharacterPowers
     fields = ['name', 'color']
-    template_name = "character_powers_update.html"
+    template_name = "characterpowers_update.html"
     success_url = '/characterpowers'   
 
 class CharacterPowersDelete(DeleteView):
     model = CharacterPowers
-    template_name = "character_powers_confirm_delete.html"
+    template_name = "characterpowers_confirm_delete.html"
     success_url = '/characterpowers'

@@ -14,7 +14,7 @@ class CharacterPowers(models.Model):
     characterpowers = models.CharField(max_length=100) #name in cattoy reference
     
     def __str__(self):
-        return self.characterpowers
+        return self.characterpowers #self.name?
 
 
 
@@ -26,7 +26,7 @@ class Character(models.Model):
     gender = models.CharField(max_length=10, choices = GENDER_CHOICES)
     created_at = models.DateTimeField(auto_now_add=True)
     user = models.ForeignKey(User, on_delete=models.CASCADE)
-    CharacterPowers = models.ManyToManyField(CharacterPowers)
+    characterpowers = models.ManyToManyField(CharacterPowers)#has to be lower case to add a character, has to be camel case to render character detail
     
 
     def __str__(self):
